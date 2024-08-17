@@ -1,3 +1,15 @@
+@font-face {
+  font-family: 'Nikosh';
+  src: url('/static/Nikosh.woff2') format('truetype');
+}
+
+body {
+  font-family: 'Nikosh', sans-serif;
+}
+
+button {
+  text-align: center !important;
+}
 .u-section-1 .u-sheet-1 {
   min-height: 788px;
 }
@@ -154,3 +166,30 @@
     height: 383px;
   }
 }
+
+
+
+.collapsible {
+  background-color: #478ac9;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.collapsible:hover {
+  background-color: #2e6da4;
+}
+
+.content {
+  padding: 0 10px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
