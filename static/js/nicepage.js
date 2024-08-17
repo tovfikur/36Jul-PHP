@@ -35,6 +35,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
     submitBtn.addEventListener('click', function (event) {
         event.preventDefault();
+
+
+        // Get the details and press release links
+        const detailsTextarea = document.getElementById('textarea-f667');
+        const pressReleaseLinks = document.getElementById('press-release-links').value.trim();
+
+        // Append press release links to the bottom of the details text
+        if (pressReleaseLinks) {
+            let detailsText = detailsTextarea.value.trim();
+            if (!detailsText.endsWith('\n')) {
+                detailsText += '\n';
+            }
+            detailsTextarea.value = detailsText + '\n' + pressReleaseLinks;
+        }
+
+
+
         const formData = new FormData(form);
         
         fetch(form.action, {
@@ -58,20 +75,4 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     showStep(currentStep);
-});
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    var coll = document.querySelector('.collapsible');
-    var content = document.querySelector('.content');
-
-    coll.addEventListener('click', function() {
-        this.classList.toggle('active');
-        if (content.style.display === "block") {
-            content.style.display = "none";
-        } else {
-            content.style.display = "block";
-        }
-    });
 });

@@ -38,7 +38,17 @@ function handleFileUploads($uploadDir) {
 // Handle the form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
+
         // Retrieve form data
+        //relation 
+        //relation-other 
+        //nid-birth 
+        //date 
+
+        $form_for = $_POST['form_for'] ?? '';
+        $relation = $_POST['relation'] ?? '';
+        $nid_birth_certificate = $_POST['nid_birth_certificate'] ?? '';
+        $date_occurrence = $_POST['date_occurrence'] ?? '';
         $name = $_POST['name'] ?? '';
         $phone = $_POST['phone'] ?? '';
         $damage = $_POST['damage'] ?? '';
@@ -58,8 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $proof = implode(',', $uploadedFiles);
 
         // Insert data into database
-        $stmt = $pdo->prepare("INSERT INTO storage (name, phone, damage, thana, address, zilla, details, proof) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->execute([$name, $phone, $damage, $thana, $address, $zilla, $details, $proof]);
+        $stmt = $pdo->prepare("INSERT INTO storage (name, phone, damage, thana, address, zilla, details, proof, date_occurrence, nid_birth_certificate, relation, form_for) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?)");
+        $stmt->execute([$name, $phone, $damage, $thana, $address, $zilla, $details, $proof, $date_occurrence, $nid_birth_certificate, $relation, $form_for]);
 
         // Return JSON response indicating success
         echo json_encode(["status" => "success", "message" => "Data submitted successfully."]);
