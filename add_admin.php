@@ -3,8 +3,8 @@
 require 'admin_db.php';
 
 // Data to insert
-$username = 'admin';
-$password = 'admin';
+$username = 'admin_user_LEBL';
+$password = 'show';
 
 // Hash the password using PHP
 $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
