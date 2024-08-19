@@ -22,17 +22,42 @@
 		"name": "",
 		"logo": "static/img/default-logo.png"
 }</script>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        /* Flexbox layout to keep footer at the bottom */
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        footer {
+            background-color: #478ac9;
+            color: #ffffff;
+            padding: 20px 0;
+            position: relative;
+            margin-top: auto;
+        }
+    </style>
 
     <meta name="theme-color" content="#478ac9">
     <meta property="og:title" content="Page 1">
     <meta property="og:type" content="website">
   <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
-  <body data-home-page="Page-1.html" data-home-page-title="Page 1" data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-header" id="sec-b6fa"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <a href="/" class="u-image u-logo u-image-1">
-          <img src="static/img/default-logo.png" class="u-logo-image u-logo-image-1" style="min-height: 50px;">
-        </a>
-      </div></header>
+  <body data-home-page="Page-1.html" data-home-page-title="Page 1" data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="en">
     <section class="u-clearfix u-section-1" id="carousel_8be9">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <div class="data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
@@ -45,19 +70,23 @@
               </div>
               <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
                 <div class="u-container-layout u-valign-top u-container-layout-2">
+                  <h3 style="font-weight: bold;font-size: 24px;">জুলাই বিপ্লবে ক্ষতিগ্রস্তদের সহায়তায় তথ্য দিন</h3>
                   <div class="custom-expanded u-carousel u-carousel-duration-250 u-carousel-fade u-form u-form-radios-spacing-20 u-form-1" data-interval="0" data-u-ride="false" id="carousel-5c65">
                     <form method="POST" action="/submit.php" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px;" redirect=True enctype="multipart/form-data">
                       <div class="u-carousel-inner" role="listbox">
                         <div class="u-carousel-item u-form-step u-slide u-active">
-                        
+      
                           <!-- New Field for Form's Purpose -->
                           <div class="u-form-group u-form-input-layout-horizontal u-form-radiobutton u-form-group-4">
-                            <label class="u-label">এই ফর্মটি আপনার জন্য, নাকি অন্য কারো জন্য?</label>
-                            <div class="u-input-row">
-                              <input id="for-self" type="radio" name="form_for" value="self" class="u-field-input" checked>
-                              <label class="u-field-label" for="for-self">নিজের জন্য</label> &nbsp &nbsp &nbsp
-                              <input id="for-other" type="radio" name="form_for" value="other" class="u-field-input">
-                              <label class="u-field-label" for="for-other">অন্যান্য</label>
+                            <div class="u-input-row" style="display: flex; justify-content: space-around; align-items: center;">
+                                <div style="display: flex; align-items: center;">
+                                    <input id="for-self" type="radio" name="form_for" value="self" class="u-field-input" checked="" style="margin-right: 0;">
+                                    <label class="u-field-label" for="for-self" style="margin-left: 5px;">নিজের জন্য</label>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                    <input id="for-other" type="radio" name="form_for" value="other" class="u-field-input" style="margin-right: 0;">
+                                    <label class="u-field-label" for="for-other" style="margin-left: 5px;">অন্যের তথ্য</label>
+                                </div>
                             </div>
                           </div>
 
@@ -87,14 +116,17 @@
                           </div>
 
                           <div class="u-form-group u-form-input-layout-horizontal u-form-radiobutton u-form-group-3">
-                            <label class="u-label">আপনার কোন ধরনের ক্ষতি হয়েছে ?</label>
-                            <select id="damage-select" name="damage" class="u-field-input">
-                              <option value="body_minor" data-calc="body_minor">শারীরিক অস্থায়ী</option>
-                              <option value="body_permanent" data-calc="body_permanent">শারীরিক স্থায়ী</option>
-                              <option value="business" data-calc="business">ব্যবসায়ীক</option>
-                              <option value="money" data-calc="money">আর্থিক</option>
-                            </select>
-                          </div>
+                            <label class="u-label">ক্ষতির ধরণ</label>
+                            <div class="custom-select-wrapper">
+                              <select id="damage-select" name="damage" class="custom-select">
+                                <option value="body_minor" data-calc="body_minor">শারীরিক অস্থায়ী</option>
+                                <option value="body_permanent" data-calc="body_permanent">শারীরিক স্থায়ী</option>
+                                <option value="business" data-calc="business">ব্যবসায়ীক</option>
+                                <option value="money" data-calc="money">আর্থিক</option>
+                              </select>
+                              <div class="custom-select-icon"></div>
+                            </div>
+                                                      </div>
                         </div>
                         <div class="u-carousel-item u-form-step u-slide">
                           <div class="u-form-group u-form-group-4">
@@ -114,22 +146,26 @@
 
                           <!-- New Field for NID/Birth Certificate Number -->
                           <div class="u-form-group u-form-group-7">
-                            <label for="nid-birth-certificate" class="u-label">NID/জন্ম সনদ নম্বর</label>
-                            <input type="text" placeholder="NID অথবা জন্ম সনদ নম্বর লিখুন" id="nid-birth-certificate" name="nid_birth_certificate" class="u-input u-input-rectangle" required="required">
+                            <label for="nid-birth-certificate" class="u-label">জাতীয় পরিচয়পত্র/ জন্ম সনদ নম্বর</label>
+                            <input type="text" placeholder="জাতীয় পরিচয়পত্র/ জন্ম সনদ নম্বর লিখুন" id="nid-birth-certificate" name="nid_birth_certificate" class="u-input u-input-rectangle" required="required">
+                          </div>
+                          <div class="u-form-group u-form-group-4">
+                            <label for="text-c888" class="u-label">পেশা</label>
+                            <input type="text" placeholder="আপনার পেশা লিখুন" id="text-c888" name="profession" class="u-input u-input-rectangle" required="required">
                           </div>
                         </div>
                         <div class="u-carousel-item u-form-step u-slide">
                           <div class="u-form-group u-form-textarea u-form-group-7">
                             <label for="textarea-f667" class="u-label">বিস্তারিত</label>
-                            <textarea rows="4" cols="50" id="textarea-f667" name="details" class="u-input u-input-rectangle" required="" placeholder="আপনার বক্তব্য / কথা বিস্তারিত লিখুন ।"></textarea>
+                            <textarea rows="4" cols="50" id="textarea-f667" name="details" class="u-input u-input-rectangle" required="" placeholder="আপনার বক্তব্য/ কথা বিস্তারিত উল্লেখ করুণ"></textarea>
                           </div>
 
                           <div class="u-form-group u-form-group-8">
-                              <label for="press-release-links" class="u-label">প্রেস রিলিজ লিঙ্কগুলি</label>
-                              <textarea rows="2" cols="50" id="press-release-links" name="press_release_links" class="u-input u-input-rectangle" placeholder="প্রেস রিলিজের লিঙ্কগুলি এখানে লিখুন ।"></textarea>
+                              <label for="press-release-links" class="u-label">প্রেস রিলিজ/ স্যোশাল প্লাটফর্ম লিংক (যদি থাকে)</label>
+                              <input rows="2" cols="50" id="press-release-links" name="press_release_links" class="u-input u-input-rectangle" placeholder="সংবাদপত্রে প্রকাশিত অথবা অনলাইন মাধ্যমে ঘটনা সম্পর্কিত লিংক">
                           </div>
                           <div class="u-form-group u-form-group-8">
-                            <label for="text-f50f" class="u-label">প্রমান</label>
+                            <label for="text-f50f" class="u-label">প্রমাণের সংযুক্তি</label>
                             <input placeholder="আপনার সপক্ষে কনো প্রমান থাকলে তার ভিডিও / ছবি / ফাইল এখানে আপ্লোড করুন। " id="text-f50f" type="file" name="proof[]" multiple class="u-input u-input-rectangle">
                           </div>
 
@@ -138,12 +174,20 @@
                             <label for="date-occurrence" class="u-label">ঘটনার তারিখ</label>
                             <input type="date" id="date-occurrence" name="date_occurrence" class="u-input u-input-rectangle" required="required">
                           </div>
+                          <div class="container mt-5">
+                              <div class="u-form-group u-form-group-10 row">
+                                  <input type="checkbox" id="confirmation-checkbox" name="confirmation" class="u-input-checkbox col-1" required>
+                                  <label for="confirmation-checkbox" class="u-label col-11">আপনি নিশ্চিত করছেন যে, প্রদত্ত সকল তথ্য সঠিক এবং প্রদত্ত তথ্য প্রয়োজনে যাচাইযোগ্য। উল্লেখ্য এই পোর্টাল সহায়তা প্রদানের নিশ্চয়তা প্রদান করে না।</label>
+                              </div>
+                          </div>
                         </div>
                       </div>
-                      <div class="u-align-center u-form-group u-form-submit">
-                        <a href="#" class="u-btn u-btn-step u-btn-step-prev u-button-style u-hidden">Back</a>
-                        <a href="#" class="u-btn u-btn-step u-btn-step-next u-button-style">Next</a>
-                        <a href="#" class="u-btn u-btn-submit u-button-style u-hidden">Submit</a>
+                      <div class="u-align-center u-form-group u-form-submit"  style="display: flex; justify-content: space-around; align-items: center; padding-top: 50px;">
+                        <a href="#" class="u-btn u-btn-step u-btn-step-prev u-button-style u-hidden"  style="font-weight: bold; font-size: 24px; padding: 9px; height: 40px; width: 40px; 
+   border-radius: 50%; display: flex; justify-content: center; align-items: center;"><</a>
+                        <a href="#" class="u-btn u-btn-step u-btn-step-next u-button-style"  style="font-weight: bold; font-size: 24px; padding: 9px; height: 40px; width: 40px; 
+   border-radius: 50%; display: flex; justify-content: center; align-items: center;">></a>
+                        <a href="#" class="u-btn u-btn-submit u-button-style u-hidden" style="border-radius: 5px;">  জমা দিন  </a>
                         <input type="submit" value="submit" class="u-form-control-hidden">
                       </div>
                     </form>
@@ -155,24 +199,27 @@
         </div>
       </div>
     </section>
-    
-    
-    
-<footer class="p-4">
-    <div class="container footer-links">
-        <div class="row">
-            <div class="col-12 col-md-4 mb-3 mb-md-0">
-                <a href="/tc.html" >Privacy Policy</a>
-            </div>
-            <div class="col-12 col-md-4 mb-3 mb-md-0">
-                <a href="/background.html" >প্রেক্ষাপট</a>
-            </div>
-            <div class="col-12 col-md-4">
-                <a href="https://legalizedbd.com/" >Visit LegalizedBD</a>
+            
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-3 d-flex flex-column justify-content-start text-center text-md-left">
+                    <a href="/background.html" style="color: #ffffff; text-decoration: none; font-weight: 500; font-size: .85rem;">About 36 July Legalized Bangladesh</a>
+                    <a href="/tc.html" style="color: #ffffff; text-decoration: none; font-weight: 500; font-size: .85rem;">Privacy policy</a>
+                </div>
+                <div class="col-12 col-md-7 text-center">
+                    <p style="margin-bottom: 0; font-weight: bold; font-size: 1rem;">জুলাই বিপ্লবে আহতদের সহায়তায় 36july.legalizedbd.com একটি সামাজিক উদ্যোগ।</p>
+                </div>
+                <div class="col-12 col-md-2 d-flex justify-content-center justify-content-md-end position-relative">
+                    <a href="https://legalizedbd.com/" style="position: relative;">
+                        <img src="static/img/legal.png" alt="LegalizedBD Logo" style="max-height: 150px;">
+                    </a>
+                </div>
             </div>
         </div>
-        <p class="mt-3 font-weight-bold">We are always here for you</p>
-    </div>
-</footer>
+    </footer>
+
+
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body></html>

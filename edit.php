@@ -28,7 +28,7 @@ if ($id) {
         $relation = $_POST['relation'] ?? '';
         $form_for = $_POST['form_for'] ?? '';
 
-        $stmt = $pdo->prepare("UPDATE storage SET name = ?, phone = ?, damage = ?, thana = ?, address = ?, zilla = ?, details = ?, proof = ?, date_occurrence = ?, nid_birth_certificate = ?, relation = ?, form_for = ? WHERE id = ?");
+        $stmt = $pdo->prepare("UPDATE storage_table SET name = ?, phone = ?, damage = ?, thana = ?, address = ?, zilla = ?, details = ?, proof = ?, date_occurrence = ?, nid_birth_certificate = ?, relation = ?, form_for = ? WHERE id = ?");
         $stmt->execute([$name, $phone, $damage, $thana, $address, $zilla, $details, $proof, $date_occurrence, $nid_birth_certificate, $relation, $form_for, $id]);
 
         header('Location: admin.php');

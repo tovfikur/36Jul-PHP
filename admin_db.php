@@ -1,7 +1,7 @@
 <?php
 // Database connection parameters
 $host = 'localhost';
-$db = 'admin'; // Replace with your actual database name
+$db = 'adminDB'; // Replace with your actual database name
 $user = 'root';
 $pass = 'root';
 $charset = 'utf8mb4';

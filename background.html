@@ -13,16 +13,38 @@
     <meta name="theme-color" content="#478ac9">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    /* Basic Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Flexbox layout to keep footer at the bottom */
+    html, body {
+        height: 100%;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content {
+        flex: 1;
+    }
+
+    footer {
+        background-color: #478ac9;
+        color: #ffffff;
+        padding: 20px 0;
+        position: relative;
+        margin-top: auto;
+    }
+</style>
 </head>
 <body class="u-body u-xl-mode">
-    <header class="u-clearfix u-header u-header">
-        <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-            <a href="/" class="u-image u-logo u-image-1">
-                <img src="static/img/default-logo.png" class="u-logo-image u-logo-image-1" alt="36 July Support Portal Logo"  style="min-height: 50px;">
-            </a>
-        </div>
-    </header>
-
     <section class="u-clearfix u-section-1" id="carousel_8be9">
         <div class="u-clearfix u-sheet u-valign-middle u-text-center" style="padding: 20px;">
             <h1 style="color: #478ac9; font-size: 2em; font-weight: bold;">১ - ৩৬ জুলাইয়ের বৈষম্যবিরোধী আন্দোলনে ক্ষতিগ্রস্তদের সহায়তা</h1>
@@ -47,22 +69,27 @@
 
 
 
-        <footer class="p-4">
-            <div class="container footer-links">
-                <div class="row">
-                    <div class="col-12 col-md-4 mb-3 mb-md-0">
-                        <a href="/tc.html">Privacy Policy</a>
-                    </div>
-                    <div class="col-12 col-md-4 mb-3 mb-md-0">
-                        <a href="/">ফর্ম</a>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <a href="https://legalizedbd.com/" >Visit LegalizedBD</a>
-                    </div>
+            
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-3 d-flex flex-column justify-content-start text-center text-md-left">
+                    <a href="/background.html" style="color: #ffffff; text-decoration: none; font-weight: 500; font-size: .85rem;">About 36 July Legalized Bangladesh</a>
+                    <a href="/tc.html" style="color: #ffffff; text-decoration: none; font-weight: 500; font-size: .85rem;">Privacy policy</a>
                 </div>
-                <p class="mt-3 font-weight-bold">We are always here for you</p>
+                <div class="col-12 col-md-7 text-center">
+                    <p style="margin-bottom: 0; font-weight: bold; font-size: 1rem;">জুলাই বিপ্লবে আহতদের সহায়তায় 36july.legalizedbd.com একটি সামাজিক উদ্যোগ।</p>
+                </div>
+                <div class="col-12 col-md-2 d-flex justify-content-center justify-content-md-end position-relative">
+                    <a href="https://legalizedbd.com/" style="position: relative;">
+                        <img src="static/img/legal.png" alt="LegalizedBD Logo" style="max-height: 150px;">
+                    </a>
+                </div>
             </div>
-        </footer>
+        </div>
+    </footer>
+
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

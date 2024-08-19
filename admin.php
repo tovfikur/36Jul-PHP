@@ -76,6 +76,7 @@ $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Profession</th>
                     <th>Phone</th>
                     <th>Damage</th>
                     <th>Thana</th>
@@ -95,6 +96,7 @@ $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <tr>
                         <td><?php echo htmlspecialchars($record['id']); ?></td>
                         <td><?php echo htmlspecialchars($record['name']); ?></td>
+                        <td><?php echo htmlspecialchars($record['profession']); ?></td>
                         <td><?php echo htmlspecialchars($record['phone']); ?></td>
                         <td><?php echo htmlspecialchars($record['damage']); ?></td>
                         <td><?php echo htmlspecialchars($record['thana']); ?></td>

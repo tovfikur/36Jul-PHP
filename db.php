@@ -1,7 +1,7 @@
 <?php
 // Database connection parameters
 $host = 'localhost';
-$db = 'info'; // Replace with your actual database name
+$db = 'infoDB'; // Replace with your actual database name
 $user = 'root';
 $pass = 'root';
 $charset = 'utf8mb4';
