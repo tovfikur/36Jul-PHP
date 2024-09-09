@@ -209,3 +209,192 @@ button {
       margin-bottom: 20px;
   }
 }
+
+
+
+/* Existing Popup Styles */
+.popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: 1000;
+  width: 100%;
+  background-color: rgba(94, 110, 141, 0.9);
+  opacity: 0;
+  visibility: hidden;
+  transition: 500ms all;
+}
+
+.popup.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transition: 1s all;
+}
+
+.popup-container {
+  transform: translateY(-50%);
+  transition: 500ms all;
+  position: relative;
+  width: 40%;
+  margin: 2em auto;
+  top: 5%;
+  padding: 2rem;
+  background: #FFF;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.is-visible .popup-container {
+  transform: translateY(0);
+  transition: 500ms all;
+}
+
+.popup-container .popup-close {
+  position: absolute;
+  top: 8px;
+  font-size: 0;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.popup-container .popup-close::before,
+.popup-container .popup-close::after {
+  content: '';
+  position: absolute;
+  top: 12px;
+  width: 14px;
+  height: 3px;
+  background-color: #8f9cb5;
+}
+
+.popup-container .popup-close::before {
+  transform: rotate(45deg);
+  left: 8px;
+}
+
+.popup-container .popup-close::after {
+  transform: rotate(-45deg);
+  right: 8px;
+}
+
+.popup-container .popup-close:hover::before,
+.popup-container .popup-close:hover::after {
+  background-color: #35a785;
+  transition: 300ms all;
+}
+
+/* Form Styling */
+.popup-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #4a4a4a;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-control {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.radio-group {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.radio-item {
+  display: flex;
+  align-items: center;
+}
+
+.radio-label {
+  margin-left: 5px;
+}
+
+.btn {
+  background-color: #35a785;
+  border: none;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn:hover {
+  background-color: #2d856a;
+}
+
+textarea.form-control {
+  resize: vertical;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+  .popup-container {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .form-control {
+    width: calc(100% - 10px);
+    padding: 8px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .popup-container h2 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .popup-container {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  .radio-group {
+    align-items: flex-start;
+    padding-left: 10px;
+  }
+
+  .radio-item {
+    margin-bottom: 10px;
+  }
+
+  .form-group label {
+    font-size: 14px;
+  }
+
+  .popup-container h2 {
+    font-size: 18px;
+  }
+
+  .btn {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
