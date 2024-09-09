@@ -220,6 +220,41 @@
     </footer>
 
 
+<div class="popup" role="alert">
+  <div class="popup-container">
+    <a href="#0" class="popup-close img-replace">Close</a>
+    <h2>Join Us</h2>
+    <form id="uniqueForm">
+      <!-- Radio Button Field -->
+      <div class="form-group">
+        <label>How would you like to contribute?</label>
+        <div class="radio-group">
+          <div class="radio-item">
+            <input type="radio" name="type" value="Investment" id="investment" required>
+            <label for="investment" class="radio-label">Investment</label>
+          </div>
+          <div class="radio-item">
+            <input type="radio" name="type" value="Volunteer" id="volunteer" required>
+            <label for="volunteer" class="radio-label">Volunteer</label>
+          </div>
+        </div>
+      </div>
+      <!-- Name Field -->
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+      </div>
+      <!-- Describe/Note Field -->
+      <div class="form-group">
+        <label for="note">Describe/Note:</label>
+        <textarea class="form-control" id="note" name="note" rows="3" required></textarea>
+      </div>
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body></html>
