@@ -76,3 +76,71 @@ document.addEventListener('DOMContentLoaded', function () {
 
     showStep(currentStep);
 });
+
+
+
+jQuery(document).ready(function($){
+    // Automatically open popup when the page is fully loaded
+    $('.popup').addClass('is-visible');
+
+    // Close popup
+    $('.popup').on('click', function(event){
+      if( $(event.target).is('.popup-close') || $(event.target).is('.popup') ) {
+        event.preventDefault();
+        $(this).removeClass('is-visible');
+      }
+    });
+
+    // Close popup when clicking the esc keyboard button
+    $(document).keyup(function(event){
+      if(event.which == '27'){ // 27 is the keycode for the ESC key
+        $('.popup').removeClass('is-visible');
+      }
+    });
+});
+
+
+$(document).ready(function() {
+    // Show modal when the page is fully loaded
+    $('.popup').addClass('is-visible');
+
+    // Handle form submission
+    $('#uniqueForm').on('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      // Gather form data
+      const formData = {
+        type: $('input[name="type"]:checked').val(),
+        name: $('#name').val(),
+        note: $('#note').val()
+      };
+
+      // Prepare the email body
+      const emailBody = `
+        Type: ${formData.type}
+        Name: ${formData.name}
+        Describe/Note: ${formData.note}
+      `;
+
+      // Construct the mailto URL
+      const mailtoURL = `mailto:team@legalizedbd.com?subject=Form Submission&body=${encodeURIComponent(emailBody)}`;
+
+      // Redirect to the mailto URL
+      window.location.href = mailtoURL;
+    });
+
+    // Close popup on clicking close button
+    $('.popup').on('click', function(event) {
+      if ($(event.target).is('.popup-close') || $(event.target).is('.popup')) {
+        event.preventDefault();
+        $(this).removeClass('is-visible');
+      }
+    });
+
+    // Close popup when pressing Esc key
+    $(document).keyup(function(event) {
+      if (event.which == '27') {
+        $('.popup').removeClass('is-visible');
+      }
+    });
+  });
