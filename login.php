@@ -4,7 +4,7 @@ require 'admin_db.php';
 
 // Data to insert (for demo purposes only)
 // This should be removed in a real application; it's only for initial setup
-$insertDemoData = true;
+$insertDemoData = false;
 
 if ($insertDemoData) {
     $username = 'admin';
