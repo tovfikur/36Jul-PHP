@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 jQuery(document).ready(function($){
     // Automatically open popup when the page is fully loaded
-    $('.popup').addClass('is-visible');
+    //$('.popup').addClass('is-visible');
 
     // Close popup
     $('.popup').on('click', function(event){
@@ -91,18 +91,59 @@ jQuery(document).ready(function($){
       }
     });
 
-    // Close popup when clicking the esc keyboard button
+    // Close popup when clicking the ESC keyboard button
     $(document).keyup(function(event){
       if(event.which == '27'){ // 27 is the keycode for the ESC key
         $('.popup').removeClass('is-visible');
       }
     });
+
+    // Create and style a sticky button
+    const stickyButton = $('<button class="sticky-popup-button">CONTRIBUTE</button>');
+    $('body').append(stickyButton);
+
+// Style the button with CSS
+stickyButton.css({
+    position: 'fixed',
+    bottom: '20px',
+    right: '20px',
+    padding: '12px 24px',
+    backgroundColor: '#007BFF',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '25px', // More rounded corners
+    boxShadow: '0 4px 8px rgba(0, 123, 255, 0.2)', // Subtle shadow for depth
+    fontSize: '16px', // Larger font size
+    fontWeight: 'bold', // Bold text
+    transition: 'background-color 0.3s, transform 0.2s', // Smooth transitions
+    cursor: 'pointer',
+    zIndex: 1000
 });
+
+// Add hover effect
+stickyButton.on('mouseenter', function() {
+    $(this).css({
+        backgroundColor: '#0056b3', // Darker shade on hover
+        transform: 'scale(1.05)' // Slightly increase size
+    });
+}).on('mouseleave', function() {
+    $(this).css({
+        backgroundColor: '#007BFF', // Reset to original color
+        transform: 'scale(1)' // Reset size
+    });
+});
+
+    // Add click event to the sticky button to open the popup
+    stickyButton.on('click', function(){
+        $('.popup').addClass('is-visible');
+    });
+});
+
 
 
 $(document).ready(function() {
     // Show modal when the page is fully loaded
-    $('.popup').addClass('is-visible');
+    // $('.popup').addClass('is-visible');
 
     // Handle form submission
     $('#uniqueForm').on('submit', function(event) {
