@@ -13,7 +13,7 @@ require 'db.php';
 // Handle delete request
 if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id'])) {
     $id = intval($_GET['id']);
-    $stmt = $pdo->prepare("DELETE FROM storage WHERE id = ?");
+    $stmt = $pdo->prepare("DELETE FROM storage_table WHERE id = ?");
     $stmt->execute([$id]);
     header('Location: admin.php');
     exit();
@@ -37,11 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($id) {
         // Update existing record
-        $stmt = $pdo->prepare("UPDATE storage SET name = ?, phone = ?, damage = ?, thana = ?, address = ?, zilla = ?, details = ?, proof = ?, date_occurrence = ?, nid_birth_certificate = ?, relation = ?, form_for = ? WHERE id = ?");
+        $stmt = $pdo->prepare("UPDATE storage_table SET name = ?, phone = ?, damage = ?, thana = ?, address = ?, zilla = ?, details = ?, proof = ?, date_occurrence = ?, nid_birth_certificate = ?, relation = ?, form_for = ? WHERE id = ?");
         $stmt->execute([$name, $phone, $damage, $thana, $address, $zilla, $details, $proof, $date_occurrence, $nid_birth_certificate, $relation, $form_for, $id]);
     } else {
         // Create new record
-        $stmt = $pdo->prepare("INSERT INTO storage (name, phone, damage, thana, address, zilla, details, proof, date_occurrence, nid_birth_certificate, relation, form_for) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $pdo->prepare("INSERT INTO storage_table (name, phone, damage, thana, address, zilla, details, proof, date_occurrence, nid_birth_certificate, relation, form_for) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->execute([$name, $phone, $damage, $thana, $address, $zilla, $details, $proof, $date_occurrence, $nid_birth_certificate, $relation, $form_for]);
     }
 
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Fetch records from database
-$stmt = $pdo->query("SELECT * FROM storage");
+$stmt = $pdo->query("SELECT * FROM storage_table");
 $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
